@@ -1,0 +1,10 @@
+export { Ic_Cart } from "./Ic_Cart";
+export { Ic_Fav } from "./Ic_Fav";
+export { Ic_Home } from "./Ic_Home";
+export { Ic_Search } from "./Ic_Search";
+export { Ic_Tick } from "./Ic_Tick";
+export { Tab_Home} from "./Tab_Home";
+export { Tab_User } from "./Tab_User";
+export { Ic_back} from "./Ic_back";
+export { Ic_Background } from "./Ic_Background";
+export { Ic_Login } from "./Ic_Login";
