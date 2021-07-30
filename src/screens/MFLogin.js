@@ -57,7 +57,7 @@ export const MFLogin = (props) => {
 
     const handleResponse = (msg) => {
         if (msg == 'success') {
-            navigation.push('Home')
+            navigation.push('Tabs')
         } else {
             //In case of failure, not covered at this time
         }

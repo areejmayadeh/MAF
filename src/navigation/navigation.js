@@ -7,6 +7,7 @@ import {
   MFHome,
   MFGardenDetails
 } from '../screens';
+import { TabNavigator } from './tabNavigator';
 
 const Stack = createStackNavigator()
 const StackNavigator = ({ navigation, route }) => {
@@ -19,8 +20,13 @@ const StackNavigator = ({ navigation, route }) => {
         headerTintColor: "white",
         headerBackTitleVisible: false,
       }}
-      initialRouteName="Login"
+      initialRouteName="Tabs"
     >
+      <Stack.Screen name="Tabs" component={TabNavigator}
+        options={{
+          headerShown: false,
+        }}
+      />
       <Stack.Screen name="Home" component={MFHome} />
       <Stack.Screen name="Login" component={MFLogin} />
       <Stack.Screen name="MFGardenDetails" component={MFGardenDetails} />
