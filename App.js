@@ -2,12 +2,15 @@ import React from 'react';
 import { Provider } from "react-redux"
 
 import { store } from './src/redux/store';
-import { MainStackNavigator } from './src/navigation/navigation';
+import { NavigationContainer } from '@react-navigation/native';
+import { DrawerNavigator } from './src/navigation/navigation';
 
 const App = () =>  {
   return (
     <Provider store={store}>
-      <MainStackNavigator/>
+    <NavigationContainer>
+      <DrawerNavigator />
+    </NavigationContainer>
     </Provider>   
   );
 };

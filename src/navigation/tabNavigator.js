@@ -4,7 +4,8 @@ import {
     View,
     processColor,
     Platform,
-    Dimensions
+    Dimensions,
+    TouchableOpacity
 } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useSelector } from "react-redux";
@@ -20,13 +21,21 @@ import {
     MFCart,
     MFUser
 } from '../screens';
+import { useNavigation } from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
 
 const TabBarOptions = (props) => {
-    let { focused, ICON } = props;
+    const navigation = useNavigation()
+    let { focused, ICON, label } = props;
     let color = focused ? '#7203FF': '#9586A8'
     return (
+        (label == 'tabAuth') ?
+                <TouchableOpacity onPress={() => navigation.openDrawer()}>
+                <ICON tintColor={Platform.OS == 'ios' ? processColor(color) : color}/>
+
+                </TouchableOpacity>
+                :
             <View> 
                 <ICON tintColor={Platform.OS == 'ios' ? processColor(color) : color}/>
             </View>
@@ -73,14 +82,14 @@ const TabNavigator = ({ navigation, route }) => {
                 name="Cart"
                 component={MFCart}
                 options={{
-                    tabBarIcon: ({ focused }) => TabBarOptions({ focused, label: 'tabSearch', ICON: Ic_Cart })
+                    tabBarIcon: ({ focused }) => TabBarOptions({ focused, label: 'tabCart', ICON: Ic_Cart })
                 }}
             />
             <Tab.Screen
                 name="Auth"
                 component={isAuthenticated ?  MFUser : MFLogin}
                 options={{
-                    tabBarIcon: ({ focused }) => TabBarOptions({ focused, label: 'tabFavourite', ICON: Tab_User })
+                    tabBarIcon: ({ focused }) => TabBarOptions({ focused, label: 'tabAuth', ICON: Tab_User })
                 }}
             />
         </Tab.Navigator>
